@@ -51,7 +51,7 @@ async def add_task(task: AddTask):
 @app.patch("api/completed")
 async def complete_task(task: CompleteTask):
     await rq.update_task(task.id)
-    return {'status', 'ok'}
+    return {'status': 'ok'}
 
 
 

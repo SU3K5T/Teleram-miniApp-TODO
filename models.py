@@ -6,18 +6,21 @@ engine = create_async_engine(url='sqlite+aiosqlite:///db.sqlite3', echo=True)
 
 async_session = async_sessionmaker(bind=engine, expire_on_commit=False)
 
+
 class Base(AsyncAttrs, DeclarativeBase):
     pass
 
+
 class User(Base):
     __tablename__ = 'users'
-
+    
     id: Mapped[int] = mapped_column(primary_key=True)
     tg_id = mapped_column(BigInteger)
 
-class Task(Base): 
-    __tablename__ = 'tasks'
 
+class Task(Base):
+    __tablename__ = 'tasks'
+    
     id: Mapped[int] = mapped_column(primary_key=True)
     title: Mapped[str] = mapped_column(String(128))
     completed: Mapped[bool] = mapped_column(default=False)

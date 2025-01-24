@@ -25,7 +25,7 @@ app = FastAPI(title="To Do App", lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware, 
-    allow_origins=["https://miniapptest-ba82e.web.app"],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"]
